@@ -1,19 +1,29 @@
 package com.matheus.cursomc.resources;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.matheus.cursomc.domain.Categoria;
+
 @RestController
 @RequestMapping(value="/categorias")
 public class CategoriaResource {
 
-	private Integer id;
-	private String nome;
-	 
 	@RequestMapping(method=RequestMethod.GET)
-	public String listar() {
-		return "Rest funcionando";
+	public List<Categoria> listar() {
+		Categoria c1 = new Categoria(1, "Informática");
+		Categoria c2 = new Categoria(2, "Escritório");
+		
+		List<Categoria> listCategoria = new ArrayList();
+		
+		listCategoria.add(c1);
+		listCategoria.add(c2);
+		
+		return listCategoria;
 	}
 }
