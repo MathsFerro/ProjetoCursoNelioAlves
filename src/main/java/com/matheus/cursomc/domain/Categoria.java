@@ -2,11 +2,17 @@ package com.matheus.cursomc.domain;
 
 import java.io.Serializable;
 
-// Converter para bytes -> Serializable
-public class Categoria implements Serializable {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class Categoria implements Serializable { // Converter para bytes -> Serializable
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	
