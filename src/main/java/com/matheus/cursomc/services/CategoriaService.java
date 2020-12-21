@@ -15,7 +15,7 @@ public class CategoriaService {
 	private CategoriaRepository repository;
 	
 	public Categoria buscar( Integer id ) {
-		return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Não encontrado"));
+		return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 	}
 	
 }
