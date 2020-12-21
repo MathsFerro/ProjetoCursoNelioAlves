@@ -7,6 +7,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.matheus.cursomc.domain.Categoria;
 import com.matheus.cursomc.repositories.CategoriaRepository;
+import com.matheus.cursomc.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {
@@ -15,7 +16,8 @@ public class CategoriaService {
 	private CategoriaRepository repository;
 	
 	public Categoria buscar( Integer id ) {
-		return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+		return repository.findById(id)
+				.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! ID: " + id + ", Tipo"+ Categoria.class.getName()));
 	}
 	
 }
